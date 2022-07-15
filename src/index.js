@@ -1,19 +1,17 @@
-import { legacy_createStore as createStore, bindActionCreators } from 'redux';
+import { Provider } from 'react-redux';
+import { createRoot } from 'react-dom/client';
+import { legacy_createStore as createStore } from 'redux';
 
+import { App } from './components';
 import reducer from './reducer';
-import * as actions from './actions';
-import Counter from './components';
 
 const store = createStore(reducer);
 
-const { dispatch } = store;
+const container = document.getElementById('app');
+const root = createRoot(container);
 
-const { inc, dec, rnd } = bindActionCreators(actions, dispatch);
-
-
-
-const update = () => {
-
-};
-
-store.subscribe(update);
+root.render(
+    <Provider store={store}>
+        <App />
+    </Provider>
+);

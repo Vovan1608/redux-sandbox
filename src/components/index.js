@@ -1,3 +1,7 @@
+import App from './App';
 import Counter from './Counter';
 
-export default Counter;
+export {
+    App,
+    Counter
+};
