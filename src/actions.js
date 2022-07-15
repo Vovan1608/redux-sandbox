@@ -2,7 +2,12 @@ const inc = () => ({ type: 'INC' });
 
 const dec = () => ({ type: 'DEC' });
 
-const rnd = (payload) => ({ payload, type: 'RND' });
+const rnd = () => {
+    return {
+        type: 'RND',
+        payload: Math.floor(Math.random() * 10)
+    }
+};
 
 export {
     inc,
