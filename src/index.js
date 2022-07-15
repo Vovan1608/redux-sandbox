@@ -1,17 +1,19 @@
+import { legacy_createStore as createStore, bindActionCreators } from 'redux';
+
+import reducer from './reducer';
+import * as actions from './actions';
+import Counter from './components';
+
+const store = createStore(reducer);
+
+const { dispatch } = store;
+
+const { inc, dec, rnd } = bindActionCreators(actions, dispatch);
 
 
-const initialState = 0;
 
-const reducer = (state, action) => {
-    switch (action.type) {
-        case 'INC':
-            return state + 1;
-    }
+const update = () => {
 
-    return 0;
 };
 
-let state = reducer(initialState, { type: 'INC' });
-state = reducer(state, { type: 'INC' });
-
-console.log(state);
+store.subscribe(update);
